@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>All Walks</h1>
-    {% for walk in walks %}
+  <h1>All Walks</h1>
+  <a href="{% url 'walks_create' %}">Add a walk</a>
+  {% for walk in walks %}
+  <a href="{% url 'detail' walk.id %}">
     <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ walk.date }}</span>
-      <p>Destination: {{ walk.destination }}</p>
-      <p>Hours: {{ walk.hours }}</p>
+      <div class="card-content">
+        <span class="card-title">{{ walk.date }}</span>
+        <p>Destination: {{ walk.destination }}</p>
+        <p>Hours: {{ walk.hours }}</p>
+      </div>
     </div>
-  </div>
+  </a>
   {% endfor %}
 {% endblock %}
