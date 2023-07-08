@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Walk
-
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 def home(request):
@@ -17,3 +17,7 @@ def walks_detail(request, walk_id):
     return render(request, 'walks/detail.html', {
         'walk': walk
     })
+
+class WalkCreate(CreateView):
+    model = Walk
+    fields = '__all__'
