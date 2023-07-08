@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Walk
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 def home(request):
@@ -21,3 +21,11 @@ def walks_detail(request, walk_id):
 class WalkCreate(CreateView):
     model = Walk
     fields = '__all__'
+
+class WalkUpdate(UpdateView):
+    model = Walk
+    fields = ['miles', 'destination', 'hours']
+
+class WalkDelete(DeleteView):
+    model = Walk
+    success_url = '/walks'
