@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>About the walkerr</h1>
-  <div class="card">
+  <h1>{{ walk.date }} Walk</h1>
+  <div class="card object">
     <div class="card-content">
-      <span class="card-title">{{ walk.name }}</span>
       <p>miles: {{ walk.miles }}</p>
       <p>Destination: {{ walk.destination }}</p>
       <p>Hours: {{ walk.hours }}</p>
     </div>
-    <a href="{% url 'walks_update' walk.id %}">Edit</a>
-    <a href="{% url 'walks_delete' walk.id %}">Delete</a>
+    <div class="btn-container">
+      <a href="{% url 'walks_update' walk.id %}" class="btn">Edit</a>
+      <a href="{% url 'walks_delete' walk.id %}" class="btn">Delete</a>
+    </div>
   </div>
 {% endblock %}
