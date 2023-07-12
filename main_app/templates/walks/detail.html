@@ -3,7 +3,11 @@
   <h1>{{ walk.date }} Walk</h1>
   <div class="card object">
     <div class="card-content">
-      <p>miles: {{ walk.miles }}</p>
+      {% if walk.miles == 1 %}
+        <p>Distance: {{ walk.miles }} Mile</p>
+      {% else %}
+        <p>Distance: {{ walk.miles }} Miles</p>
+      {% endif %}
       <p>Destination: {{ walk.destination }}</p>
       <p>Hours: {{ walk.hours }}</p>
     </div>
