@@ -9,7 +9,11 @@
         <p>Distance: {{ walk.miles }} Miles</p>
       {% endif %}
       <p>Destination: {{ walk.destination }}</p>
-      <p>Hours: {{ walk.hours }}</p>
+      {% if walk.hours == 1 %}
+        <p>Time: {{ walk.hours }} Hour</p>
+      {% else %}
+        <p>Time: {{ walk.hours }} Hours</p>
+      {% endif %}
     </div>
     <div class="btn-container">
       <a href="{% url 'walks_update' walk.id %}" class="btn">Edit</a>
